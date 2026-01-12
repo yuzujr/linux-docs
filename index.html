@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档中心 - yuzujr</title>
+    
+    <!-- 外部样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 本地样式 -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 阅读进度条 -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- 文件切换按钮 -->
+    <button class="file-toggle" id="fileToggle">
+        <i class="fas fa-folder-open"></i>
+        <span>文档</span>
+    </button>
+
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 文件目录面板 -->
+    <nav class="file-panel" id="filePanel">
+        <div class="file-panel-header">
+            <h3><i class="fas fa-book"></i> 文档列表</h3>
+            <button class="file-panel-close" id="filePanelClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="fileSearch" placeholder="搜索文档...">
+        </div>
+        <div class="file-list" id="fileList">
+            <!-- 动态加载文件列表 -->
+        </div>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 目录侧边栏 -->
+        <aside class="sidebar">
+            <h2>📑 目录</h2>
+            <div class="search-box" style="padding: 0 0 15px 0; border: none;">
+                <input type="text" class="search-input" id="tocSearch" placeholder="搜索目录...">
+            </div>
+            <ul id="toc"></ul>
+        </aside>
+        
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <article class="markdown-body" id="content"></article>
+            
+            <footer class="footer">
+                <p>© 2025 yuzujr · 保留所有权利</p>
+                <div class="beian-info">
+                    <p>根据中国法律要求，本网站已完成备案</p>
+                    <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">吉ICP备2025027426号</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 工具栏 -->
+    <div class="toolbar">
+        <button class="tool-btn" id="printBtn" title="打印文档">
+            <i class="fas fa-print"></i>
+        </button>
+        <button class="tool-btn" id="fullscreenBtn" title="全屏阅读">
+            <i class="fas fa-expand"></i>
+        </button>
+    </div>
+
+    <!-- 返回顶部 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 图片灯箱 -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img src="" alt="">
+    </div>
+
+    <!-- 外部脚本 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    <!-- 本地脚本 -->
+    <script src="js/app.js"></script>
+</body>
+</html>
