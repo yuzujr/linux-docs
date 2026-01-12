@@ -22,6 +22,11 @@ pnpm docs:preview
 
 项目配置了 GitHub Actions 自动部署。当推送到 `main` 分支并且 `docs/` 目录下的文件发生变更时，会自动构建并部署到 GitHub Pages。
 
+## 预览
+`https://yuzujr.github.io/linux-docs/`
+
+`https://www.sheot.cn/linux-docs/`
+
 ## 技术栈
 
 - [VitePress](https://vitepress.dev/) - 静态站点生成器
