@@ -1,15 +1,8 @@
-[toc]
+# Linux 生存手册
 
+![image-20250823072656706](../assets/fastfetch-arch.png)
 
-
-# Linux 使用记录与问题解决整理
-
-
-
-![image-20250823072656706](assets/fastfetch-arch.png)
-
-![image-20260107111343989](assets/fastfetch-cachyos.png)
-
+![image-20260107111343989](../assets/fastfetch-cachyos.png)
 
 ## 🌐 吉林大学校园网认证（Drcom）
 
@@ -32,8 +25,6 @@ make
 
 重启有线连接后，重新运行`drclient_jlu`。
 
-
-
 ## 🇨🇳 科学上网
 
 只需要下载[clash verge rev](https://github.com/clash-verge-rev/clash-verge-rev)，
@@ -44,13 +35,11 @@ make
 
 ui可使用**[metacubexd](https://github.com/MetaCubeX/metacubexd)**。
 
-
-
 ## 🪛 n卡驱动
 
 提前安装`nvidia`(如果使用50系显卡，此处应为`nvidia-open`)、`nvidia-settings`、`nvidia-utils`。
 
-#### 步骤 1：启用 nvidia_drm
+### 步骤 1：启用 nvidia_drm
 
 修改`/etc/default/grub`:
 
@@ -60,9 +49,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="nvidia_drm.modeset=1"
 
 在原有的参数中加入`nvidia_drm.modeset=1`即可。
 
-
-
-#### 步骤2：桌面环境设置n卡优先
+### 步骤2：桌面环境设置n卡优先
 
 **确认独显位置**：
 
@@ -92,18 +79,14 @@ GRUB_CMDLINE_LINUX_DEFAULT="nvidia_drm.modeset=1"
       ignore-drm-device "/dev/dri/renderD129" // （可选）此选项会禁用对应的显卡，将导致笔记本屏幕或外接屏幕无法亮起
   }
   ```
-  
-  
 
-#### 步骤3：验证
+### 步骤3：验证
 
 ```shell
 lsmod | grep nvidia # 应输出nvidia_drm等
 ```
 
-
-
-#### 步骤4: 功率控制
+### 步骤4: 功率控制
 
 查看`nvidia-smi`的输出，如果显卡的最大功率不是预期值，则需要
 ```shell
@@ -111,21 +94,15 @@ sudo systemctl enable --now nvidia-powerd.service
 ```
 再次查看`nvidia-smi`，问题解决，并且笔记本的切换功率功能可以使用了
 
-
-
-#### （可选）安装CachyOS
+### （可选）安装CachyOS
 
 使用CachyOS会自动配置显卡驱动，但是安装过程可能会因网络原因失败。
 
-
-
-
-
 ## 🖕 关于Nvidia的BUG
 
-#### QQ wayland原生启动画面撕裂
+### QQ wayland原生启动画面撕裂
 
-尽管已经设置了n卡优先（见[桌面环境设置n卡优先](####步骤2：桌面环境设置n卡优先)），QQ仍然会使用核显，由于桌面环境本身使用独显渲染，所以会产生大量数据拷贝，并且核显性能低下，如果占满会导致QQ出现马赛克画面撕裂
+尽管已经设置了n卡优先（见[桌面环境设置n卡优先](#步骤2桌面环境设置n卡优先)），QQ仍然会使用核显，由于桌面环境本身使用独显渲染，所以会产生大量数据拷贝，并且核显性能低下，如果占满会导致QQ出现马赛克画面撕裂
 
 问题根源：`libglvnd`在选择`EGL`提供者时，选择了`mesa`，导致使用核显渲染，对于n卡用户来说，应该使用`nvidia`。
 
@@ -135,20 +112,12 @@ sudo systemctl enable --now nvidia-powerd.service
 env __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json linuxqq
 ```
 
-
-
-
-
 ## 🔐 登录界面：移除多余桌面环境
 
 删除或重命名以下目录下不需要的 `.desktop` 文件：
 
 - `/usr/share/xsessions/`
 - `/usr/share/wayland-sessions/`
-
-
-
-
 
 ## 🧩 KDE 设置 Windows 风格 Alt+Tab
 
@@ -163,11 +132,7 @@ qdbus org.kde.KWin /KWin reconfigure
 
 - 打开「设置」 → 「窗口管理」 → 「任务切换器」
 - 取消勾选「显示选中窗口」
-- 获取新样式：下载 “Aqua Medium Icons”
-
-
-
-
+- 获取新样式：下载 "Aqua Medium Icons"
 
 ## 🎯 更改鼠标指针样式与大小
 
@@ -187,10 +152,6 @@ Xcursor.size: 24
 ```bash
 gsettings set org.gnome.desktop.interface cursor-size 24
 ```
-
-
-
-
 
 ## 🖕 windows作为ssh服务器如何配置免密登录
 
