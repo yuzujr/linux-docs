@@ -171,3 +171,11 @@ Match Group administrators
 ```
 
 然后在`服务`里面重启`OpenSSH SSH Server`服务就完成了。
+
+## 🎮 steam 如何识别本地游戏文件
+使用Windows + Linux双系统，就可以轻松在两个系统之间迁移游戏文件，不需要重复下载。
+但是steam想要识别到游戏文件，需要遵循以下步骤：
+1. 点安装（让steam在库中创建文件夹，使其能够识别）
+2. 复制已下好的文件，到这个文件夹中 (一般是`Steam/steamapps/common/游戏名`，`Steam`目录在Linux下一般是`~/.local/share/Steam`)
+3. 回steam点卸载（不要害怕！这个时候卸的是downloading里的）
+4. 再次点安装，此时steam就能检测到复制过去的文件了
