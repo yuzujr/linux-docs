@@ -1,4 +1,34 @@
 import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
+
+function extractTitle(filePath: string, fallback: string): string {
+  const content = fs.readFileSync(filePath, 'utf-8')
+  const frontmatterTitle = content.match(/^---[\s\S]*?\ntitle:\s*["']?(.+?)["']?\s*\n[\s\S]*?---/m)
+  if (frontmatterTitle?.[1]) return frontmatterTitle[1].trim()
+
+  const h1 = content.match(/^#\s+(.+)$/m)
+  if (h1?.[1]) return h1[1].trim()
+
+  return fallback
+}
+
+function buildNotesSidebarItems() {
+  const notesDir = path.resolve(__dirname, '../notes')
+  return fs
+    .readdirSync(notesDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => {
+      const fileName = entry.name
+      const stem = fileName.replace(/\.md$/, '')
+      const filePath = path.join(notesDir, fileName)
+      return {
+        text: extractTitle(filePath, stem),
+        link: `/notes/${fileName}`
+      }
+    })
+    .sort((a, b) => a.link.localeCompare(b.link, 'zh-Hans-CN'))
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -13,9 +43,7 @@ export default defineConfig({
     sidebar: [
       {
         text: '目录',
-        items: [
-          { text: 'Linux 生存手册', link: '/notes/linux-survival-guide.md' }
-        ]
+        items: buildNotesSidebarItems()
       }
     ],
 

@@ -1,6 +1,11 @@
-# Arch Linux 进阶折腾与优化实录
+# 重返 Arch Linux 实录
 
-> 记录从 CachyOS 迁移到原生 Arch Linux 过程中遇到的各类“疑难杂症”，以及如何利用现代化工具（Wayland, Btrfs, systemd-boot, UKI）打造一个优雅、干净、极速的系统环境。
+> 在CachyOS待了两个月，积累了不少经验，觉得已经有能力自己掌控Arch了，从零开始！
+>
+> dotfiles和软件包列表都已经上传到了github仓库，重装还是很方便的：
+> [dotfiles](https://github.com/yuzujr/dotfiles)
+>
+> [package](https://github.com/yuzujr/arch-pkgsync)
 
 ---
 
@@ -11,11 +16,11 @@
 
 ---
 
-## 1. 桌面体验优化：Wayland 缩放、字体发虚与 Keyring 冲突
+## 1. 桌面体验优化：Keyring 冲突
 
 **问题场景**：
 
-* 使用 `greetd` 自动登录后，每次打开浏览器都会弹出巨大的 Keyring (密钥环) 解锁要求。
+* 使用 `greetd` 自动登录后，每次打开浏览器都会弹出 Keyring (密钥环) 解锁要求。
 * KDE (`kwallet`) 和 niri (`gnome-keyring`) 冲突，导致跨桌面环境时浏览器登录状态（Cookie）全部丢失。
 
 **终极解决方案**：
