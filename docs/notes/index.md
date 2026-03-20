@@ -8,7 +8,7 @@ pageClass: notes-directory
 
 <div class="directory-grid">
   <section class="directory-block">
-    <h2>网络与连接</h2>
+    <h2 data-count="2">网络与连接</h2>
     <ul>
       <li><a href="./network/jlu-drcom.html">吉林大学校园网认证：Drcom 与有线配置</a></li>
       <li><a href="./network/proxy.html">Linux 代理工具：Clash Verge Rev / mihomo / metacubexd</a></li>
@@ -16,7 +16,7 @@ pageClass: notes-directory
   </section>
 
   <section class="directory-block">
-    <h2>显卡与图形</h2>
+    <h2 data-count="2">显卡与图形</h2>
     <ul>
       <li><a href="./graphics/nvidia-wayland.html">Nvidia 独显优先：Wayland 下的基础设置</a></li>
       <li><a href="./graphics/linuxqq-egl.html">Linux QQ 在 Wayland 下花屏：强制切到 Nvidia EGL</a></li>
@@ -24,7 +24,7 @@ pageClass: notes-directory
   </section>
 
   <section class="directory-block">
-    <h2>桌面与交互</h2>
+    <h2 data-count="5">桌面与交互</h2>
     <ul>
       <li><a href="./desktop/coomer.html">coomer：Linux 下很好用的屏幕放大镜</a></li>
       <li><a href="./desktop/cursor.html">Linux 下鼠标指针主题与大小设置</a></li>
@@ -35,7 +35,7 @@ pageClass: notes-directory
   </section>
 
   <section class="directory-block">
-    <h2>系统、磁盘与引导</h2>
+    <h2 data-count="2">系统、磁盘与引导</h2>
     <ul>
       <li><a href="./system/btrfs-online-migration.html">Btrfs 在线迁移系统到新分区</a></li>
       <li><a href="./system/systemd-boot-uki.html">从 GRUB 切到 systemd-boot + UKI</a></li>
@@ -43,7 +43,7 @@ pageClass: notes-directory
   </section>
 
   <section class="directory-block">
-    <h2>跨系统协作</h2>
+    <h2 data-count="2">跨系统协作</h2>
     <ul>
       <li><a href="./interop/windows-ssh-server-key-auth.html">Windows OpenSSH 服务器免密登录</a></li>
       <li><a href="./interop/steam-existing-files.html">Steam 识别已存在的本地游戏文件</a></li>
@@ -51,7 +51,7 @@ pageClass: notes-directory
   </section>
 
   <section class="directory-block">
-    <h2>NixOS / Nix</h2>
+    <h2 data-count="1">NixOS / Nix</h2>
     <ul>
       <li><a href="./nix/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
     </ul>
