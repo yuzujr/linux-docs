@@ -1,6 +1,6 @@
 # 桌面与交互
 
-这类问题不算大故障，但通常天天都会碰。
+桌面层问题。
 
 - [自动登录环境下的 Keyring 冲突](/notes/desktop/keyring-conflict.md)
 - [登录界面只保留需要的桌面环境](/notes/desktop/remove-session-entries.md)
