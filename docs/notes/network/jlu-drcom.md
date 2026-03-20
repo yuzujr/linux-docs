@@ -1,6 +1,6 @@
 # 吉林大学校园网认证：Drcom 与有线配置
 
-在吉林大学这套环境里，最省事的做法还是直接用 Drcom 客户端。
+在Linux中，最省事的做法还是直接用 Drcom 命令行客户端。
 
 ```bash
 git clone https://github.com/AndrewLawrence80/jlu-drcom-client
@@ -10,7 +10,7 @@ make
 ./drclient_jlu
 ```
 
-如果你不想继续维护原版，也可以直接用我写的跨平台版本：
+也可以直接用我写的跨平台版本：
 
 - [drcom-client-cpp](https://github.com/yuzujr/drcom-client-cpp)
 
