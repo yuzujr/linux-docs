@@ -71,7 +71,7 @@ xrdb -merge ~/.Xresources
 
 ## 把 Windows `.ani/.cur` 转成 Linux 主题（ani2xcursor）
 
-项目：`ani2xcursor`（支持 `.ani/.cur`，可多尺寸导出，可生成 manifest 修映射）
+我的项目：[ani2xcursor](https://github.com/yuzujr/ani2xcursor)（支持 `.ani/.cur`，可多尺寸导出，可生成 manifest 修映射）
 
 ### 安装
 

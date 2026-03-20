@@ -26,10 +26,11 @@ pageClass: notes-directory
   <section class="directory-block">
     <h2>桌面与交互</h2>
     <ul>
+      <li><a href="./desktop/coomer.html">coomer：Linux 下很好用的屏幕放大镜</a></li>
+      <li><a href="./desktop/cursor.html">Linux 下鼠标指针主题与大小设置</a></li>
       <li><a href="./desktop/keyring-conflict.html">自动登录环境下的 Keyring 冲突</a></li>
       <li><a href="./desktop/remove-session-entries.html">登录界面只保留需要的桌面环境</a></li>
       <li><a href="./desktop/kde-alt-tab.html">KDE 调成 Windows 风格 Alt+Tab</a></li>
-      <li><a href="./desktop/cursor.html">Linux 下鼠标指针主题与大小设置</a></li>
     </ul>
   </section>
 

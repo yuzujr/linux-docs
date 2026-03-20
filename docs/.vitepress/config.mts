@@ -24,10 +24,11 @@ const sidebar = [
   {
     text: '桌面与交互',
     items: [
+      { text: 'coomer：Linux 下很好用的屏幕放大镜', link: '/notes/desktop/coomer.md' },
+      { text: 'Linux 下鼠标指针主题与大小设置', link: '/notes/desktop/cursor.md' },
       { text: '自动登录环境下的 Keyring 冲突', link: '/notes/desktop/keyring-conflict.md' },
       { text: '登录界面只保留需要的桌面环境', link: '/notes/desktop/remove-session-entries.md' },
       { text: 'KDE 调成 Windows 风格 Alt+Tab', link: '/notes/desktop/kde-alt-tab.md' },
-      { text: 'Linux 下鼠标指针主题与大小设置', link: '/notes/desktop/cursor.md' }
     ]
   },
   {
