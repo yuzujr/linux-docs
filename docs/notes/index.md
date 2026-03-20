@@ -8,13 +8,6 @@ pageClass: notes-directory
 
 <div class="directory-grid">
   <section class="directory-block">
-    <h2>开始</h2>
-    <ul>
-      <li><a href="./nix/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
-    </ul>
-  </section>
-
-  <section class="directory-block">
     <h2>网络与连接</h2>
     <ul>
       <li><a href="./network/jlu-drcom.html">吉林大学校园网认证：Drcom 与有线配置</a></li>
