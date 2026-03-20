@@ -51,19 +51,21 @@
 }
 
 .home-modern .VPHero .name {
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.18em;
-  color: var(--vp-c-text-2);
-  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+  font-weight: 760;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+  text-transform: none;
 }
 
 .home-modern .VPHero .text {
-  margin-top: 0.1rem;
-  font-size: clamp(2.3rem, 5vw, 4.45rem);
-  line-height: 0.94;
-  letter-spacing: -0.02em;
+  margin-top: 0.32rem;
+  font-size: clamp(1.02rem, 1.9vw, 1.34rem);
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: var(--vp-c-text-2);
 }
 
 .home-modern .VPHero .tagline {
@@ -138,8 +140,8 @@
 .showcase-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .showcase-card figcaption {
