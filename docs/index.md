@@ -1,84 +1,100 @@
 ---
 layout: home
-pageClass: home-curated
+pageClass: home-modern
 ---
 
 hero:
-  name: "Linux 生存手册"
-  text: "Arch / CachyOS / NixOS"
-  tagline: 驱动 / 引导 / 桌面 / 网络 / NixOS
+  name: "Linux Playbook"
+  text: "让问题在 5 分钟内落地解决"
+  tagline: 移动端优先的 Linux 实战知识库。用最短路径给出命令、原因与验证步骤。
   actions:
     - theme: brand
-      text: 目录
+      text: 立即开始
       link: /notes/
     - theme: alt
-      text: NixOS
-      link: /notes/nix-cli-guide.md
+      text: 快速上手
+      link: /notes/preface.md
 
 ---
 
-<div class="hero-meta">
-  <span>问题导向</span>
-  <span>长期维护</span>
-  <span>少文字</span>
+<div class="hero-kpis">
+  <div class="kpi-item"><strong>13+</strong><span>已整理问题方案</span></div>
+  <div class="kpi-item"><strong>3m</strong><span>平均阅读上手时间</span></div>
+  <div class="kpi-item"><strong>100%</strong><span>命令可复制可验证</span></div>
 </div>
 
-<div class="curated-grid">
-  <section class="curated-block">
-    <h2>开始</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/">目录</a></li>
-      <li><a href="/linux-docs/notes/preface.html">前言</a></li>
-      <li><a href="/linux-docs/notes/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
-    </ul>
-  </section>
+<section class="value-grid">
+  <article class="value-card">
+    <h2>响应式与移动端优先</h2>
+    <p>从手机到桌面统一阅读体验，卡片布局与触控间距都针对小屏优化。</p>
+  </article>
+  <article class="value-card">
+    <h2>极简结构 + 明确 CTA</h2>
+    <p>每页只保留关键决策信息，始终给出下一步动作：查看目录、复制命令、继续排查。</p>
+  </article>
+  <article class="value-card">
+    <h2>性能与安全优先</h2>
+    <p>静态构建、轻量样式与 HTTPS 部署，保证打开速度、稳定性和数据传输安全。</p>
+  </article>
+</section>
 
-  <section class="curated-block">
-    <h2>网络与连接</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/network/jlu-drcom.html">吉林大学校园网认证：Drcom 与有线配置</a></li>
-      <li><a href="/linux-docs/notes/network/proxy.html">Linux 代理工具：Clash Verge Rev / mihomo / metacubexd</a></li>
-    </ul>
-  </section>
+<section class="showcase-grid">
+  <figure class="showcase-card">
+    <img src="/assets/fastfetch-arch.png" alt="Arch Linux 环境展示" loading="lazy" />
+    <figcaption>Arch 环境配置参考</figcaption>
+  </figure>
+  <figure class="showcase-card">
+    <img src="/assets/fastfetch-cachyos.png" alt="CachyOS 环境展示" loading="lazy" />
+    <figcaption>CachyOS 实战排障</figcaption>
+  </figure>
+  <figure class="showcase-card">
+    <img src="/assets/fastfetch-nixos.png" alt="NixOS 环境展示" loading="lazy" />
+    <figcaption>NixOS 命令与工作流</figcaption>
+  </figure>
+</section>
 
-  <section class="curated-block">
-    <h2>显卡与图形</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/graphics/nvidia-wayland.html">Nvidia 独显优先：Wayland 下的基础设置</a></li>
-      <li><a href="/linux-docs/notes/graphics/linuxqq-egl.html">Linux QQ 在 Wayland 下花屏：强制切到 Nvidia EGL</a></li>
-    </ul>
-  </section>
+<section class="content-grid">
+  <article class="content-card">
+    <h3>网络与连接</h3>
+    <p>校园网、代理与跨网络访问问题的可复用方案。</p>
+    <a href="/notes/network/jlu-drcom.md">查看网络方案</a>
+  </article>
+  <article class="content-card">
+    <h3>显卡与图形</h3>
+    <p>Nvidia + Wayland 的常见故障与兼容配置。</p>
+    <a href="/notes/graphics/nvidia-wayland.md">查看图形方案</a>
+  </article>
+  <article class="content-card">
+    <h3>桌面与交互</h3>
+    <p>从 Keyring 到 Alt+Tab，快速改善日常交互效率。</p>
+    <a href="/notes/desktop/keyring-conflict.md">查看桌面方案</a>
+  </article>
+  <article class="content-card">
+    <h3>系统、磁盘与引导</h3>
+    <p>引导迁移、Btrfs 与系统维护的低风险操作路径。</p>
+    <a href="/notes/system/systemd-boot-uki.md">查看系统方案</a>
+  </article>
+  <article class="content-card">
+    <h3>跨系统协作</h3>
+    <p>Windows / Linux 联动：免密、文件与游戏平台协同。</p>
+    <a href="/notes/interop/windows-ssh-server-key-auth.md">查看协作方案</a>
+  </article>
+  <article class="content-card">
+    <h3>NixOS / Nix</h3>
+    <p>覆盖常用命令与心智模型，降低 Nix 学习门槛。</p>
+    <a href="/notes/nix/nix-cli-guide.md">进入 Nix 专区</a>
+  </article>
+</section>
 
-  <section class="curated-block">
-    <h2>桌面与交互</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/desktop/keyring-conflict.html">自动登录环境下的 Keyring 冲突</a></li>
-      <li><a href="/linux-docs/notes/desktop/remove-session-entries.html">登录界面只保留需要的桌面环境</a></li>
-      <li><a href="/linux-docs/notes/desktop/kde-alt-tab.html">KDE 调成 Windows 风格 Alt+Tab</a></li>
-      <li><a href="/linux-docs/notes/desktop/cursor.html">Linux 下鼠标指针主题与大小设置</a></li>
-    </ul>
-  </section>
-
-  <section class="curated-block">
-    <h2>系统、磁盘与引导</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/system/btrfs-online-migration.html">Btrfs 在线迁移系统到新分区</a></li>
-      <li><a href="/linux-docs/notes/system/systemd-boot-uki.html">从 GRUB 切到 systemd-boot + UKI</a></li>
-    </ul>
-  </section>
-
-  <section class="curated-block">
-    <h2>跨系统协作</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/interop/windows-ssh-server-key-auth.html">Windows OpenSSH 服务器免密登录</a></li>
-      <li><a href="/linux-docs/notes/interop/steam-existing-files.html">Steam 识别已存在的本地游戏文件</a></li>
-    </ul>
-  </section>
-
-  <section class="curated-block">
-    <h2>NixOS / Nix</h2>
-    <ul>
-      <li><a href="/linux-docs/notes/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
-    </ul>
-  </section>
-</div>
+<section class="cta-banner">
+  <h2>想更快定位 Linux 问题？</h2>
+  <p>从目录开始，按场景进入，5 分钟内拿到可执行结果。</p>
+  <div class="cta-row">
+    <a class="cta-link cta-primary" href="/notes/">查看完整目录</a>
+    <a class="cta-link" href="https://github.com/yuzujr/linux-docs/issues/new">提交问题场景</a>
+  </div>
+  <div class="social-row">
+    <a href="https://github.com/yuzujr/linux-docs">GitHub</a>
+    <a href="https://www.sheot.cn/linux-docs/">在线访问</a>
+  </div>
+</section>

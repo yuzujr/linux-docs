@@ -6,12 +6,14 @@ pageClass: notes-directory
 
 # 目录
 
+按场景进入，每篇都提供可执行命令与验证方式，适合手机快速检索与桌面深读。
+
 <div class="directory-grid">
   <section class="directory-block">
     <h2>开始</h2>
     <ul>
       <li><a href="/notes/preface.md">前言</a></li>
-      <li><a href="/notes/nix-cli-guide.md">Nix / NixOS 常用命令整理</a></li>
+      <li><a href="/notes/nix/nix-cli-guide.md">Nix / NixOS 常用命令整理</a></li>
     </ul>
   </section>
 
@@ -54,6 +56,13 @@ pageClass: notes-directory
     <ul>
       <li><a href="/notes/interop/windows-ssh-server-key-auth.md">Windows OpenSSH 服务器免密登录</a></li>
       <li><a href="/notes/interop/steam-existing-files.md">Steam 识别已存在的本地游戏文件</a></li>
+    </ul>
+  </section>
+
+  <section class="directory-block">
+    <h2>NixOS / Nix</h2>
+    <ul>
+      <li><a href="/notes/nix/nix-cli-guide.md">Nix / NixOS 常用命令整理</a></li>
     </ul>
   </section>
 </div>

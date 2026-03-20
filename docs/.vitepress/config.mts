@@ -58,16 +58,32 @@ export default defineConfig({
   description: '一个普通 Linux 用户的长期笔记',
   lang: 'zh-CN',
   base: '/linux-docs/',
+  head: [
+    ['meta', { name: 'theme-color', content: '#0f8f7d' }],
+    ['meta', { name: 'author', content: 'yuzujr' }],
+    ['meta', { name: 'keywords', content: 'Linux, Arch, NixOS, Wayland, 运维, 教程' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'Linux 生存手册' }],
+    ['meta', { property: 'og:description', content: '移动端优先的 Linux 实战知识库，快速定位问题并给出可执行方案。' }]
+  ],
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
       { text: '目录', link: '/notes/' },
-      { text: '前言', link: '/notes/preface.md' }
+      { text: 'Nix 专区', link: '/notes/nix/nix-cli-guide.md' },
+      { text: 'GitHub', link: 'https://github.com/yuzujr/linux-docs' }
     ],
+    search: {
+      provider: 'local'
+    },
     sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yuzujr/linux-docs' }
-    ]
+    ],
+    footer: {
+      message: 'Built with VitePress · HTTPS Enabled',
+      copyright: 'Copyright © 2026 yuzujr'
+    }
   },
   ignoreDeadLinks: true
 })
