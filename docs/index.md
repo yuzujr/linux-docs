@@ -1,40 +1,38 @@
 ---
 layout: home
 pageClass: home-modern
----
-
 hero:
-  name: "Linux Playbook"
-  text: "让问题在 5 分钟内落地解决"
-  tagline: 移动端优先的 Linux 实战知识库。用最短路径给出命令、原因与验证步骤。
+  name: "Linux 生存手册"
+  text: "个人 Linux 知识笔记"
+  tagline: 记录我在 Arch / CachyOS / NixOS 上遇到的问题、排查过程和可复现方案。
   actions:
     - theme: brand
-      text: 立即开始
+      text: 查看目录
       link: /notes/
     - theme: alt
-      text: 快速上手
+      text: 从前言开始
       link: /notes/preface.md
 
 ---
 
 <div class="hero-kpis">
-  <div class="kpi-item"><strong>13+</strong><span>已整理问题方案</span></div>
-  <div class="kpi-item"><strong>3m</strong><span>平均阅读上手时间</span></div>
-  <div class="kpi-item"><strong>100%</strong><span>命令可复制可验证</span></div>
+  <div class="kpi-item"><strong>13+</strong><span>主题笔记</span></div>
+  <div class="kpi-item"><strong>长期</strong><span>持续更新</span></div>
+  <div class="kpi-item"><strong>可复现</strong><span>命令可复制</span></div>
 </div>
 
 <section class="value-grid">
   <article class="value-card">
     <h2>响应式与移动端优先</h2>
-    <p>从手机到桌面统一阅读体验，卡片布局与触控间距都针对小屏优化。</p>
+    <p>从手机到桌面都能快速阅读，排版在小屏下也清晰可用。</p>
   </article>
   <article class="value-card">
-    <h2>极简结构 + 明确 CTA</h2>
-    <p>每页只保留关键决策信息，始终给出下一步动作：查看目录、复制命令、继续排查。</p>
+    <h2>极简结构</h2>
+    <p>尽量减少干扰，只保留必要背景、操作步骤和验证方法。</p>
   </article>
   <article class="value-card">
-    <h2>性能与安全优先</h2>
-    <p>静态构建、轻量样式与 HTTPS 部署，保证打开速度、稳定性和数据传输安全。</p>
+    <h2>轻量与安全</h2>
+    <p>采用静态构建与 HTTPS，页面加载快，访问过程更稳定可靠。</p>
   </article>
 </section>
 
@@ -56,42 +54,42 @@ hero:
 <section class="content-grid">
   <article class="content-card">
     <h3>网络与连接</h3>
-    <p>校园网、代理与跨网络访问问题的可复用方案。</p>
-    <a href="/notes/network/jlu-drcom.md">查看网络方案</a>
+    <p>校园网、代理与跨网络访问问题整理。</p>
+    <a href="/notes/network/jlu-drcom.md">阅读笔记</a>
   </article>
   <article class="content-card">
     <h3>显卡与图形</h3>
-    <p>Nvidia + Wayland 的常见故障与兼容配置。</p>
-    <a href="/notes/graphics/nvidia-wayland.md">查看图形方案</a>
+    <p>Nvidia + Wayland 的常见故障与兼容设置。</p>
+    <a href="/notes/graphics/nvidia-wayland.md">阅读笔记</a>
   </article>
   <article class="content-card">
     <h3>桌面与交互</h3>
-    <p>从 Keyring 到 Alt+Tab，快速改善日常交互效率。</p>
-    <a href="/notes/desktop/keyring-conflict.md">查看桌面方案</a>
+    <p>从 Keyring 到 Alt+Tab 的桌面体验调优记录。</p>
+    <a href="/notes/desktop/keyring-conflict.md">阅读笔记</a>
   </article>
   <article class="content-card">
     <h3>系统、磁盘与引导</h3>
-    <p>引导迁移、Btrfs 与系统维护的低风险操作路径。</p>
-    <a href="/notes/system/systemd-boot-uki.md">查看系统方案</a>
+    <p>引导迁移、Btrfs 与系统维护相关操作记录。</p>
+    <a href="/notes/system/systemd-boot-uki.md">阅读笔记</a>
   </article>
   <article class="content-card">
     <h3>跨系统协作</h3>
     <p>Windows / Linux 联动：免密、文件与游戏平台协同。</p>
-    <a href="/notes/interop/windows-ssh-server-key-auth.md">查看协作方案</a>
+    <a href="/notes/interop/windows-ssh-server-key-auth.md">阅读笔记</a>
   </article>
   <article class="content-card">
     <h3>NixOS / Nix</h3>
-    <p>覆盖常用命令与心智模型，降低 Nix 学习门槛。</p>
-    <a href="/notes/nix/nix-cli-guide.md">进入 Nix 专区</a>
+    <p>Nix / NixOS 常用命令与日常工作流记录。</p>
+    <a href="/notes/nix/nix-cli-guide.md">阅读笔记</a>
   </article>
 </section>
 
 <section class="cta-banner">
-  <h2>想更快定位 Linux 问题？</h2>
-  <p>从目录开始，按场景进入，5 分钟内拿到可执行结果。</p>
+  <h2>从目录开始阅读</h2>
+  <p>按分类进入，找到对应问题后直接跟着步骤操作即可。</p>
   <div class="cta-row">
-    <a class="cta-link cta-primary" href="/notes/">查看完整目录</a>
-    <a class="cta-link" href="https://github.com/yuzujr/linux-docs/issues/new">提交问题场景</a>
+    <a class="cta-link cta-primary" href="/notes/">打开目录</a>
+    <a class="cta-link" href="https://github.com/yuzujr/linux-docs/issues/new">GitHub 反馈</a>
   </div>
   <div class="social-row">
     <a href="https://github.com/yuzujr/linux-docs">GitHub</a>
