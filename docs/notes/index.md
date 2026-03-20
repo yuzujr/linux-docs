@@ -1,0 +1,108 @@
+# 目录
+
+以前这里像一个大抽屉，什么都往里塞。现在我把它拆成几排架子，每个问题单独成文，查起来能快很多。
+
+<div class="note-grid">
+  <a class="note-card" href="/linux-docs/notes/preface.html">
+    <h3>写在前面</h3>
+    <p>先看这页。它解释了这个站为什么会从 Arch / CachyOS 走到 NixOS。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/nix/">
+    <h3>NixOS / Nix</h3>
+    <p>最近的主线在这里，先把命令和工作流写清楚。</p>
+  </a>
+</div>
+
+<div class="index-section">
+  <h2>网络与连接</h2>
+  <p>先把网通了，再谈别的。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/network/jlu-drcom.html">
+      <h3>吉林大学校园网认证：Drcom 与有线配置</h3>
+      <p>吉林大学环境下最实用的做法，包含有线配置里的关键字段。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/network/proxy.html">
+      <h3>Linux 代理工具：Clash Verge Rev / mihomo / metacubexd</h3>
+      <p>从省事到可控，三种常见用法一次说清。</p>
+    </a>
+  </div>
+</div>
+
+<div class="index-section">
+  <h2>显卡与图形</h2>
+  <p>显示这块的坑不难，烦的是每次都长得像玄学。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/graphics/nvidia-wayland.html">
+      <h3>Nvidia 独显优先：Wayland 下的基础设置</h3>
+      <p>从 `nvidia_drm.modeset=1` 到功耗控制，一次配稳。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/graphics/linuxqq-egl.html">
+      <h3>Linux QQ 在 Wayland 下花屏：强制切到 Nvidia EGL</h3>
+      <p>看起来像撕裂，根上其实是 EGL 供应者选错了。</p>
+    </a>
+  </div>
+</div>
+
+<div class="index-section">
+  <h2>桌面与交互</h2>
+  <p>这些小地方最容易被忽略，也最容易每天都烦到你。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/desktop/keyring-conflict.html">
+      <h3>自动登录环境下的 Keyring 冲突</h3>
+      <p>KDE 和 niri 混用时，浏览器 Cookie 和密码存储到底怎么收拾。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/desktop/remove-session-entries.html">
+      <h3>登录界面只保留需要的桌面环境</h3>
+      <p>多桌面环境共存时，把多余入口收干净。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/desktop/kde-alt-tab.html">
+      <h3>KDE 调成 Windows 风格 Alt+Tab</h3>
+      <p>去掉延迟，换掉默认切换器，让手感接近熟悉的那一套。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/desktop/cursor.html">
+      <h3>Linux 下鼠标指针主题与大小设置</h3>
+      <p>不同桌面和显示协议下，鼠标指针并不总走一套逻辑。</p>
+    </a>
+  </div>
+</div>
+
+<div class="index-section">
+  <h2>系统、磁盘与引导</h2>
+  <p>这些文章都不长，但每一篇都能在关键时刻救命。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/system/btrfs-online-migration.html">
+      <h3>Btrfs 在线迁移系统到新分区</h3>
+      <p>不进 LiveCD，不重启，直接把根分区搬走。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/system/systemd-boot-uki.html">
+      <h3>从 GRUB 切到 systemd-boot + UKI</h3>
+      <p>把引导栈收干净，也把几个容易踩的坑单独说开。</p>
+    </a>
+  </div>
+</div>
+
+<div class="index-section">
+  <h2>跨系统协作</h2>
+  <p>双系统不是问题，细节才是问题。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/interop/windows-ssh-server-key-auth.html">
+      <h3>Windows OpenSSH 服务器免密登录</h3>
+      <p>为什么公钥明明配了，还是会继续要密码。</p>
+    </a>
+    <a class="note-card" href="/linux-docs/notes/interop/steam-existing-files.html">
+      <h3>Steam 识别已存在的本地游戏文件</h3>
+      <p>让 Linux 和 Windows 之间的游戏文件互认，不用反复重下。</p>
+    </a>
+  </div>
+</div>
+
+<div class="index-section">
+  <h2>NixOS / Nix</h2>
+  <p>这是现在最常打开的一栏，后面应该也会越长越快。</p>
+  <div class="note-grid">
+    <a class="note-card" href="/linux-docs/notes/nix-cli-guide.html">
+      <h3>Nix / NixOS 常用命令整理</h3>
+      <p>把新旧命令分开讲，先建立一套不混乱的心智模型。</p>
+    </a>
+  </div>
+</div>

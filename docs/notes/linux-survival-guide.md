@@ -1,187 +1,36 @@
 # Linux 生存手册
 
-> 这篇是偏“通用经验”的长期手册，主要收纳跨发行版也能复用的配置、排障和环境搭建笔记。随着我从 Arch / CachyOS 迁到 NixOS，里面有些做法会继续保留，有些则会逐步拆分成独立文章。
-
-Arch 时期：
-
-![Arch fastfetch](../assets/fastfetch-arch.png)
-
-CachyOS 时期：
-
-![CachyOS fastfetch](../assets/fastfetch-cachyos.png)
-
-## 🌐 吉林大学校园网认证（Drcom）
-
-```shell
-git clone https://github.com/AndrewLawrence80/jlu-drcom-client
-cd jlu-drcom-client
-# 修改 config.h 中的账号密码等参数
-make
-./drclient_jlu
-```
-
-或者可以用我的c++跨平台版本，地址：[github](https://github.com/yuzujr/drcom-client-cpp)
-
-**有线连接**
-
-需要使用`nmcli`或者桌面环境自带的图形化配置界面，配置`有线连接`：
-
-- `克隆 MAC 地址`：校园网账号的物理地址
-- `IPv4`：方式改为`手动`，配置`DNS服务器`、`IP地址`、`子网掩码`、`网关`。
-
-重启有线连接后，重新运行`drclient_jlu`。
-
-## 🇨🇳 科学上网
-
-只需要下载[clash verge rev](https://github.com/clash-verge-rev/clash-verge-rev)，
-
-然后通过url导入配置文件即可。
-
-进阶用户可选择直接运行mihomo内核，自行控制proxy providers和rule providers。
-
-ui可使用**[metacubexd](https://github.com/MetaCubeX/metacubexd)**。
-
-## 🪛 n卡驱动
-
-提前安装`nvidia`(如果使用50系显卡，此处应为`nvidia-open`)、`nvidia-settings`、`nvidia-utils`。
-
-### 步骤 1：启用 nvidia_drm
-
-修改`/etc/default/grub`:
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="nvidia_drm.modeset=1"
-```
-
-在原有的参数中加入`nvidia_drm.modeset=1`即可。
-
-### 步骤2：桌面环境设置n卡优先
-
-**确认独显位置**：
-
-1. `lspci | grep -E "VGA"` 得到独显的pci名，例如`01:00.0`。
-2. `ll /dev/dri/by-path/`得到pci名对应的`cardx`和`renderDxxx`
-
-在下面的设置中，将独显放在前面
-
-- KDE：创建`~/.config/plasma-workspace/env/kwin-drm.sh`
-
-  ```bash
-  #!/bin/bash
-  export KWIN_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
-  ```
-
-- Hyprland：在hyprland或者uwsm配置文件中加入：
-
-  ```bash
-  export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
-  ```
-
-- Niri：在任意niri配置文件（例如`~/.config/niri/config.kdl`）中加入
-
-  ```
-  debug {
-      render-drm-device "/dev/dri/renderD128" // 独显
-      ignore-drm-device "/dev/dri/renderD129" // （可选）此选项会禁用对应的显卡，将导致笔记本屏幕或外接屏幕无法亮起
-  }
-  ```
-
-### 步骤3：验证
-
-```shell
-lsmod | grep nvidia # 应输出nvidia_drm等
-```
-
-### 步骤4: 功率控制
-
-查看`nvidia-smi`的输出，如果显卡的最大功率不是预期值，则需要
-```shell
-sudo systemctl enable --now nvidia-powerd.service
-```
-再次查看`nvidia-smi`，问题解决，并且笔记本的切换功率功能可以使用了
-
-### （可选）安装CachyOS
-
-使用CachyOS会自动配置显卡驱动，但是安装过程可能会因网络原因失败。
-
-## 🖕 关于Nvidia的BUG
-
-### QQ wayland原生启动画面撕裂
-
-尽管已经设置了n卡优先（见[桌面环境设置n卡优先](#步骤2桌面环境设置n卡优先)），QQ仍然会使用核显，由于桌面环境本身使用独显渲染，所以会产生大量数据拷贝，并且核显性能低下，如果占满会导致QQ出现马赛克画面撕裂
-
-问题根源：`libglvnd`在选择`EGL`提供者时，选择了`mesa`，导致使用核显渲染，对于n卡用户来说，应该使用`nvidia`。
-
-解决方法：手动指定QQ启动时的`EGL`提供者
-
-```shell
-env __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json linuxqq
-```
-
-## 🔐 登录界面：移除多余桌面环境
-
-删除或重命名以下目录下不需要的 `.desktop` 文件：
-
-- `/usr/share/xsessions/`
-- `/usr/share/wayland-sessions/`
-
-## 🧩 KDE 设置 Windows 风格 Alt+Tab
-
-### 步骤一：移除延迟
-
-```bash
-kwriteconfig5 --file ~/.config/kwinrc --group TabBox --key DelayTime 0
-qdbus org.kde.KWin /KWin reconfigure
-```
-
-### 步骤二：设置任务切换器样式
-
-- 打开「设置」 → 「窗口管理」 → 「任务切换器」
-- 取消勾选「显示选中窗口」
-- 获取新样式：下载 "Aqua Medium Icons"
-
-## 🎯 更改鼠标指针样式与大小
-
-### 更换鼠标主题（适用于 X11）
-
-修改 `/usr/share/icons/default/index.theme`
-
-### 修改 `.Xresources`
-
-```bash
-Xcursor.theme: default
-Xcursor.size: 24
-```
-
-### 修改 GNOME 鼠标大小
-
-```bash
-gsettings set org.gnome.desktop.interface cursor-size 24
-```
-
-## 🖕 windows作为ssh服务器如何配置免密登录
-
-前期所有工作都和Linux配置一样
-
-然而会发现这样仍然无法免密登录
-
-**解决方法**：
-
-打开`C\ProgramData\ssh\sshd_config`
-
-注释下面两行
-
-```
-Match Group administrators
-       AuthorizedKeysFile __PROGRAMDATA__/ssh/administrators_authorized_keys
-```
-
-然后在`服务`里面重启`OpenSSH SSH Server`服务就完成了。
-
-## 🎮 steam 如何识别本地游戏文件
-使用Windows + Linux双系统，就可以轻松在两个系统之间迁移游戏文件，不需要重复下载。
-但是steam想要识别到游戏文件，需要遵循以下步骤：
-1. 点安装（让steam在库中创建文件夹，使其能够识别）
-2. 复制已下好的文件，到这个文件夹中 (一般是`Steam/steamapps/common/游戏名`，`Steam`目录在Linux下一般是`~/.local/share/Steam`)
-3. 回steam点卸载（不要害怕！这个时候卸的是downloading里的）
-4. 再次点安装，此时steam就能检测到复制过去的文件了
+这页不再堆具体问题，改成总览。
+
+以前我喜欢把所有零碎经验塞进一篇长文，写的时候挺爽，等真要找东西时就开始痛苦。现在这篇只负责带路，具体问题都拆成单独文章。
+
+<div class="note-grid">
+  <a class="note-card" href="/linux-docs/notes/network/">
+    <h3>网络与连接</h3>
+    <p>校园网和代理，先把网打通。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/graphics/">
+    <h3>显卡与图形</h3>
+    <p>Nvidia、Wayland、EGL，这一栏负责所有“像玄学”的显示问题。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/desktop/">
+    <h3>桌面与交互</h3>
+    <p>Keyring、登录器、Alt+Tab、鼠标指针，这些每天都要碰。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/system/">
+    <h3>系统、磁盘与引导</h3>
+    <p>Btrfs、systemd-boot、UKI，属于不出事就不碰，一出事就要命。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/interop/">
+    <h3>跨系统协作</h3>
+    <p>Windows 和 Linux 混着用时的一些具体问题。</p>
+  </a>
+  <a class="note-card" href="/linux-docs/notes/nix/">
+    <h3>NixOS / Nix</h3>
+    <p>最近的主线。命令和工作流都往这边收。</p>
+  </a>
+</div>
+
+## 还保留这页的原因
+
+因为“Linux 生存手册”这个名字还挺像这个站现在的样子。只不过正文已经被拆出来了，这页以后更像封面，而不是仓库。

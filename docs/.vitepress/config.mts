@@ -1,107 +1,86 @@
 import { defineConfig } from 'vitepress'
-import fs from 'node:fs'
-import path from 'node:path'
 
-function extractTitle(filePath: string, fallback: string): string {
-  const content = fs.readFileSync(filePath, 'utf-8')
-  const frontmatterTitle = content.match(/^---[\s\S]*?\ntitle:\s*["']?(.+?)["']?\s*\n[\s\S]*?---/m)
-  if (frontmatterTitle?.[1]) return frontmatterTitle[1].trim()
-
-  const h1 = content.match(/^#\s+(.+)$/m)
-  if (h1?.[1]) return h1[1].trim()
-
-  return fallback
-}
-
-function buildNotesSidebarItems() {
-  const notesDir = path.resolve(__dirname, '../notes')
-  return fs
-    .readdirSync(notesDir, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
-    .map((entry) => {
-      const fileName = entry.name
-      const stem = fileName.replace(/\.md$/, '')
-      const filePath = path.join(notesDir, fileName)
-      return {
-        text: extractTitle(filePath, stem),
-        link: `/notes/${fileName}`
-      }
-    })
-    .sort((a, b) => a.link.localeCompare(b.link, 'zh-Hans-CN'))
-}
-
-function noteItem(fileName: string, fallback: string) {
-  const notesDir = path.resolve(__dirname, '../notes')
-  const filePath = path.join(notesDir, fileName)
-  return {
-    text: extractTitle(filePath, fallback),
-    link: `/notes/${fileName}`
+const sidebar = [
+  {
+    text: '开始',
+    items: [
+      { text: '目录', link: '/notes/' },
+      { text: '写在前面：从 Arch 折腾到 NixOS', link: '/notes/preface.md' }
+    ]
+  },
+  {
+    text: '网络与连接',
+    items: [
+      { text: '分类页', link: '/notes/network/' },
+      { text: '吉林大学校园网认证：Drcom 与有线配置', link: '/notes/network/jlu-drcom.md' },
+      { text: 'Linux 代理工具：Clash Verge Rev / mihomo / metacubexd', link: '/notes/network/proxy.md' }
+    ]
+  },
+  {
+    text: '显卡与图形',
+    items: [
+      { text: '分类页', link: '/notes/graphics/' },
+      { text: 'Nvidia 独显优先：Wayland 下的基础设置', link: '/notes/graphics/nvidia-wayland.md' },
+      { text: 'Linux QQ 在 Wayland 下花屏：强制切到 Nvidia EGL', link: '/notes/graphics/linuxqq-egl.md' }
+    ]
+  },
+  {
+    text: '桌面与交互',
+    items: [
+      { text: '分类页', link: '/notes/desktop/' },
+      { text: '自动登录环境下的 Keyring 冲突', link: '/notes/desktop/keyring-conflict.md' },
+      { text: '登录界面只保留需要的桌面环境', link: '/notes/desktop/remove-session-entries.md' },
+      { text: 'KDE 调成 Windows 风格 Alt+Tab', link: '/notes/desktop/kde-alt-tab.md' },
+      { text: 'Linux 下鼠标指针主题与大小设置', link: '/notes/desktop/cursor.md' }
+    ]
+  },
+  {
+    text: '系统、磁盘与引导',
+    items: [
+      { text: '分类页', link: '/notes/system/' },
+      { text: 'Btrfs 在线迁移系统到新分区', link: '/notes/system/btrfs-online-migration.md' },
+      { text: '从 GRUB 切到 systemd-boot + UKI', link: '/notes/system/systemd-boot-uki.md' }
+    ]
+  },
+  {
+    text: '跨系统协作',
+    items: [
+      { text: '分类页', link: '/notes/interop/' },
+      { text: 'Windows OpenSSH 服务器免密登录', link: '/notes/interop/windows-ssh-server-key-auth.md' },
+      { text: 'Steam 识别已存在的本地游戏文件', link: '/notes/interop/steam-existing-files.md' }
+    ]
+  },
+  {
+    text: 'NixOS / Nix',
+    items: [
+      { text: '分类页', link: '/notes/nix/' },
+      { text: 'Nix / NixOS 常用命令整理', link: '/notes/nix-cli-guide.md' }
+    ]
+  },
+  {
+    text: '归档',
+    items: [
+      { text: 'Linux 生存手册', link: '/notes/linux-survival-guide.md' },
+      { text: '重返 Arch Linux 实录', link: '/notes/重返archlinux.md' }
+    ]
   }
-}
+]
 
-function buildStructuredSidebar() {
-  const orderedNotes = [
-    'preface.md',
-    'linux-survival-guide.md',
-    '重返archlinux.md',
-    'nix-cli-guide.md'
-  ]
-  const orderedSet = new Set(orderedNotes)
-  const extraNotes = buildNotesSidebarItems().filter((item) => {
-    const fileName = item.link.replace('/notes/', '')
-    return !orderedSet.has(fileName)
-  })
-
-  const sections = [
-    {
-      text: '开始',
-      items: [noteItem('preface.md', '写在前面')]
-    },
-    {
-      text: '通用手册',
-      items: [noteItem('linux-survival-guide.md', 'Linux 生存手册')]
-    },
-    {
-      text: '折腾记录',
-      items: [noteItem('重返archlinux.md', '重返 Arch Linux 实录')]
-    },
-    {
-      text: 'NixOS / Nix',
-      items: [noteItem('nix-cli-guide.md', 'Nix / NixOS 常用命令整理')]
-    }
-  ]
-
-  if (extraNotes.length > 0) {
-    sections.push({
-      text: '其他笔记',
-      items: extraNotes
-    })
-  }
-
-  return sections
-}
-
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Linux 生存手册",
-  description: "Linux 使用记录与问题解决整理",
+  title: 'Linux 生存手册',
+  description: '一个普通 Linux 用户的长期笔记',
   lang: 'zh-CN',
-  // 应使用仓库名：https://vitepress.dev/reference/site-config#base
   base: '/linux-docs/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-
     nav: [
       { text: '首页', link: '/' },
-      { text: '开始阅读', link: '/notes/preface.md' }
+      { text: '目录', link: '/notes/' },
+      { text: '写在前面', link: '/notes/preface.md' }
     ],
-
-    sidebar: buildStructuredSidebar(),
-
+    sidebar,
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yuzujr/linux-docs' }
     ]
   },
-  // 忽略死链接：https://vitepress.dev/reference/site-config#ignoredeadlinks
   ignoreDeadLinks: true
 })
