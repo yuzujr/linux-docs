@@ -48,7 +48,7 @@ const sidebar = [
   {
     text: 'NixOS / Nix',
     items: [
-      { text: 'Nix / NixOS 常用命令整理', link: '/notes/nix-cli-guide.md' }
+      { text: 'Nix / NixOS 常用命令整理', link: '/notes/nix/nix-cli-guide.md' }
     ]
   }
 ]

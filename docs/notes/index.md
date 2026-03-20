@@ -7,7 +7,7 @@
     <h3>前言</h3>
     <p>当前状态。</p>
   </a>
-  <a class="note-card" href="/linux-docs/notes/nix-cli-guide.html">
+  <a class="note-card" href="/linux-docs/notes/nix/nix-cli-guide.html">
     <h3>NixOS / Nix</h3>
     <p>当前重点。</p>
   </a>
@@ -80,7 +80,7 @@
   <div class="home-panels">
     <section class="home-panel">
       <ul>
-        <li><a href="/linux-docs/notes/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
+        <li><a href="/linux-docs/notes/nix/nix-cli-guide.html">Nix / NixOS 常用命令整理</a></li>
       </ul>
     </section>
   </div>

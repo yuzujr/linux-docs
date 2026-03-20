@@ -38,4 +38,4 @@
 
 1. 先看 [目录](/notes/)
 2. 按分类进入具体问题
-3. 最近内容优先看 [Nix / NixOS 常用命令整理](/notes/nix-cli-guide.md)
+3. 最近内容优先看 [Nix / NixOS 常用命令整理](/notes/nix/nix-cli-guide.md)
