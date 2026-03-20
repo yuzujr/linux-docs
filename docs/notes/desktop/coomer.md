@@ -33,7 +33,7 @@ yay -S coomer-bin
 
 ### NixOS / Nix
 
-NixOS 持久安装（flake）：
+**NixOS 持久安装（flake）：**
 
 `flake.nix` 添加输入：
 
@@ -55,7 +55,7 @@ environment.systemPackages = [
 sudo nixos-rebuild switch --flake .
 ```
 
-先试跑（不安装）：
+**先试跑（不安装）：**
 
 ```bash
 nix run github:yuzujr/coomer
