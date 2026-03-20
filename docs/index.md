@@ -14,15 +14,15 @@ hero:
 
 <section class="showcase-grid">
   <figure class="showcase-card">
-    <img src="/assets/fastfetch-arch.png" alt="Arch Linux 环境展示" loading="lazy" />
+    <img src="/assets/fastfetch-arch-unified.png" alt="Arch Linux 环境展示" loading="lazy" />
     <figcaption>Arch Linux</figcaption>
   </figure>
   <figure class="showcase-card">
-    <img src="/assets/fastfetch-cachyos.png" alt="CachyOS 环境展示" loading="lazy" />
+    <img src="/assets/fastfetch-cachyos-unified.png" alt="CachyOS 环境展示" loading="lazy" />
     <figcaption>CachyOS</figcaption>
   </figure>
   <figure class="showcase-card">
-    <img src="/assets/fastfetch-nixos.png" alt="NixOS 环境展示" loading="lazy" />
+    <img src="/assets/fastfetch-nixos-unified.png" alt="NixOS 环境展示" loading="lazy" />
     <figcaption>NixOS</figcaption>
   </figure>
 </section>
