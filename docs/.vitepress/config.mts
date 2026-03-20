@@ -70,7 +70,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '目录', link: '/notes/' },
-      { text: 'Nix 专区', link: '/notes/nix/nix-cli-guide.md' },
+      { text: '前言', link: '/notes/preface.md' },
       { text: 'GitHub', link: 'https://github.com/yuzujr/linux-docs' }
     ],
     search: {

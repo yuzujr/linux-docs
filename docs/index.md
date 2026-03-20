@@ -15,27 +15,6 @@ hero:
 
 ---
 
-<div class="hero-kpis">
-  <div class="kpi-item"><strong>13+</strong><span>主题笔记</span></div>
-  <div class="kpi-item"><strong>长期</strong><span>持续更新</span></div>
-  <div class="kpi-item"><strong>可复现</strong><span>命令可复制</span></div>
-</div>
-
-<section class="value-grid">
-  <article class="value-card">
-    <h2>响应式与移动端优先</h2>
-    <p>从手机到桌面都能快速阅读，排版在小屏下也清晰可用。</p>
-  </article>
-  <article class="value-card">
-    <h2>极简结构</h2>
-    <p>尽量减少干扰，只保留必要背景、操作步骤和验证方法。</p>
-  </article>
-  <article class="value-card">
-    <h2>轻量与安全</h2>
-    <p>采用静态构建与 HTTPS，页面加载快，访问过程更稳定可靠。</p>
-  </article>
-</section>
-
 <section class="showcase-grid">
   <figure class="showcase-card">
     <img src="/assets/fastfetch-arch.png" alt="Arch Linux 环境展示" loading="lazy" />
@@ -51,48 +30,6 @@ hero:
   </figure>
 </section>
 
-<section class="content-grid">
-  <article class="content-card">
-    <h3>网络与连接</h3>
-    <p>校园网、代理与跨网络访问问题整理。</p>
-    <a href="/notes/network/jlu-drcom.md">阅读笔记</a>
-  </article>
-  <article class="content-card">
-    <h3>显卡与图形</h3>
-    <p>Nvidia + Wayland 的常见故障与兼容设置。</p>
-    <a href="/notes/graphics/nvidia-wayland.md">阅读笔记</a>
-  </article>
-  <article class="content-card">
-    <h3>桌面与交互</h3>
-    <p>从 Keyring 到 Alt+Tab 的桌面体验调优记录。</p>
-    <a href="/notes/desktop/keyring-conflict.md">阅读笔记</a>
-  </article>
-  <article class="content-card">
-    <h3>系统、磁盘与引导</h3>
-    <p>引导迁移、Btrfs 与系统维护相关操作记录。</p>
-    <a href="/notes/system/systemd-boot-uki.md">阅读笔记</a>
-  </article>
-  <article class="content-card">
-    <h3>跨系统协作</h3>
-    <p>Windows / Linux 联动：免密、文件与游戏平台协同。</p>
-    <a href="/notes/interop/windows-ssh-server-key-auth.md">阅读笔记</a>
-  </article>
-  <article class="content-card">
-    <h3>NixOS / Nix</h3>
-    <p>Nix / NixOS 常用命令与日常工作流记录。</p>
-    <a href="/notes/nix/nix-cli-guide.md">阅读笔记</a>
-  </article>
-</section>
-
-<section class="cta-banner">
-  <h2>从目录开始阅读</h2>
-  <p>按分类进入，找到对应问题后直接跟着步骤操作即可。</p>
-  <div class="cta-row">
-    <a class="cta-link cta-primary" href="/notes/">打开目录</a>
-    <a class="cta-link" href="https://github.com/yuzujr/linux-docs/issues/new">GitHub 反馈</a>
-  </div>
-  <div class="social-row">
-    <a href="https://github.com/yuzujr/linux-docs">GitHub</a>
-    <a href="https://www.sheot.cn/linux-docs/">在线访问</a>
-  </div>
+<section class="home-note">
+  <p>这里只做个人知识分享，内容会持续精简，重点保留真实可复现的解决过程。</p>
 </section>
