@@ -46,7 +46,7 @@ export AQ_DRM_DEVICES="/dev/dri/card0:/dev/dri/card1"
 
 在 `~/.config/niri/config.kdl` 之类的配置文件里加：
 
-```kdl
+```text
 debug {
     render-drm-device "/dev/dri/renderD128"
     ignore-drm-device "/dev/dri/renderD129"
