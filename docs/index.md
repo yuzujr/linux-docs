@@ -4,21 +4,21 @@ layout: home
 
 hero:
   name: "Linux 生存手册"
-  text: "Arch & CachyOS"
-  tagline: Linux 使用记录与问题解决整理
+  text: "从 Arch 折腾到 NixOS"
+  tagline: 记录重装、迁移、排障和现在这套 NixOS 工作流
   actions:
     - theme: brand
-      text: 开始阅读
-      link: /notes/linux-survival-guide.md
+      text: 写在前面
+      link: /notes/preface.md
     - theme: alt
-      text: 源码
-      link: https://github.com/yuzujr/linux-docs
+      text: NixOS 笔记
+      link: /notes/nix-cli-guide.md
 
 features:
-  - title: 实用
-    details: 记录实际使用中遇到的问题和解决方案。
-  - title: 详细
-    details: 从驱动配置到桌面环境设置。
-  - title: 持续更新
-    details: 不断添加新的使用技巧和问题解决方案。
+  - title: 折腾记录
+    details: 从 Arch 到 CachyOS，再回 Arch，最后迁到 NixOS，把真正留下来的经验记下来。
+  - title: 生存手册
+    details: 校园网、代理、显卡、桌面环境、SSH、Steam 这些常见问题都放在这里。
+  - title: 现在进行时
+    details: 站点内容会跟着我的机器和工作流一起变，最近重点在 NixOS。
 ---

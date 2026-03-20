@@ -30,6 +30,57 @@ function buildNotesSidebarItems() {
     .sort((a, b) => a.link.localeCompare(b.link, 'zh-Hans-CN'))
 }
 
+function noteItem(fileName: string, fallback: string) {
+  const notesDir = path.resolve(__dirname, '../notes')
+  const filePath = path.join(notesDir, fileName)
+  return {
+    text: extractTitle(filePath, fallback),
+    link: `/notes/${fileName}`
+  }
+}
+
+function buildStructuredSidebar() {
+  const orderedNotes = [
+    'preface.md',
+    'linux-survival-guide.md',
+    '重返archlinux.md',
+    'nix-cli-guide.md'
+  ]
+  const orderedSet = new Set(orderedNotes)
+  const extraNotes = buildNotesSidebarItems().filter((item) => {
+    const fileName = item.link.replace('/notes/', '')
+    return !orderedSet.has(fileName)
+  })
+
+  const sections = [
+    {
+      text: '开始',
+      items: [noteItem('preface.md', '写在前面')]
+    },
+    {
+      text: '通用手册',
+      items: [noteItem('linux-survival-guide.md', 'Linux 生存手册')]
+    },
+    {
+      text: '折腾记录',
+      items: [noteItem('重返archlinux.md', '重返 Arch Linux 实录')]
+    },
+    {
+      text: 'NixOS / Nix',
+      items: [noteItem('nix-cli-guide.md', 'Nix / NixOS 常用命令整理')]
+    }
+  ]
+
+  if (extraNotes.length > 0) {
+    sections.push({
+      text: '其他笔记',
+      items: extraNotes
+    })
+  }
+
+  return sections
+}
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Linux 生存手册",
@@ -39,13 +90,13 @@ export default defineConfig({
   base: '/linux-docs/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    
-    sidebar: [
-      {
-        text: '目录',
-        items: buildNotesSidebarItems()
-      }
+
+    nav: [
+      { text: '首页', link: '/' },
+      { text: '开始阅读', link: '/notes/preface.md' }
     ],
+
+    sidebar: buildStructuredSidebar(),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/yuzujr/linux-docs' }

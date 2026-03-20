@@ -1,8 +1,14 @@
 # Linux 生存手册
 
-![image-20250823072656706](../assets/fastfetch-arch.png)
+> 这篇是偏“通用经验”的长期手册，主要收纳跨发行版也能复用的配置、排障和环境搭建笔记。随着我从 Arch / CachyOS 迁到 NixOS，里面有些做法会继续保留，有些则会逐步拆分成独立文章。
 
-![image-20260107111343989](../assets/fastfetch-cachyos.png)
+Arch 时期：
+
+![Arch fastfetch](../assets/fastfetch-arch.png)
+
+CachyOS 时期：
+
+![CachyOS fastfetch](../assets/fastfetch-cachyos.png)
 
 ## 🌐 吉林大学校园网认证（Drcom）
 
